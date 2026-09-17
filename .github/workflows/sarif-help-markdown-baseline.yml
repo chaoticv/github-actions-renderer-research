@@ -1,9 +1,9 @@
-name: SARIF result Markdown parser S2
+name: SARIF result link scheme S3
 
 on:
   push:
     branches:
-      - ghbb-sarif-result-markdown-20260917-s2
+      - ghbb-sarif-link-schemes-20260917-s3
     paths:
       - .github/sarif/ghbb-help-markdown-baseline.sarif
       - .github/workflows/sarif-help-markdown-baseline.yml
@@ -13,20 +13,20 @@ permissions:
   security-events: write
 
 concurrency:
-  group: sarif-result-markdown-parser-s2
+  group: sarif-result-link-scheme-s3
   cancel-in-progress: false
 
 jobs:
   upload-sarif:
-    name: Upload inert SARIF result parser S2
+    name: Upload inert SARIF result link S3
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Check out owned fixture
         uses: actions/checkout@v4
 
-      - name: Upload inert SARIF result parser S2
+      - name: Upload inert SARIF result link S3
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: .github/sarif/ghbb-help-markdown-baseline.sarif
-          category: ghbb-sarif-result-markdown-20260917-s2
+          category: ghbb-sarif-link-schemes-20260917-s3
