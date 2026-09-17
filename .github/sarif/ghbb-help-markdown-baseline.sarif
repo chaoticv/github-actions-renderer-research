@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "GHBB SARIF Renderer Research",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "GHBB-SARIF-HELP-001",
+              "name": "GhbbSarifHelpMarkdownBaseline",
+              "shortDescription": {
+                "text": "GHBB SARIF help Markdown baseline"
+              },
+              "fullDescription": {
+                "text": "Researcher-owned inert renderer baseline for GitHub code-scanning rule help."
+              },
+              "help": {
+                "text": "GHBB-SARIF-HELP-TEXT-FALLBACK-20260917-S1",
+                "markdown": "# GHBB SARIF help Markdown baseline\n\n**Marker:** `GHBB-SARIF-HELP-MARKDOWN-20260917-S1`\n\n<span id=\"ghbb-sarif-help-span-20260917-s1\">GHBB-SARIF-HELP-SPAN-20260917-S1</span>\n\n[GHBB-SARIF-HELP-LINK-20260917-S1](https://github.com/chaoticv/github-actions-renderer-research/tree/ghbb-sarif-help-markdown-20260917-s1)\n\n<details><summary>GHBB-SARIF-HELP-DETAILS-SUMMARY-20260917-S1</summary>\n\nGHBB-SARIF-HELP-DETAILS-BODY-20260917-S1\n\n</details>"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "maintainability"
+                ],
+                "precision": "very-high",
+                "problem.severity": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "GHBB-SARIF-HELP-001",
+          "ruleIndex": 0,
+          "level": "warning",
+          "message": {
+            "text": "GHBB-SARIF-RESULT-TEXT-20260917-S1. See [GHBB-SARIF-RELATED-LINK-20260917-S1](1) for the owned related location.",
+            "markdown": "**GHBB-SARIF-RESULT-MARKDOWN-UNSUPPORTED-20260917-S1**"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "README.md"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8f3ca9d77bd65f21:1"
+          },
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "README.md"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 2
+                }
+              },
+              "message": {
+                "text": "GHBB-SARIF-RELATED-LOCATION-TEXT-20260917-S1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name: SARIF help Markdown renderer baseline
+
+on:
+  push:
+    branches:
+      - ghbb-sarif-help-markdown-20260917-s1
+    paths:
+      - .github/sarif/ghbb-help-markdown-baseline.sarif
+      - .github/workflows/sarif-help-markdown-baseline.yml
+
+permissions:
+  contents: read
+  security-events: write
+
+concurrency:
+  group: sarif-help-markdown-renderer-baseline
+  cancel-in-progress: false
+
+jobs:
+  upload-sarif:
+    name: Upload inert SARIF baseline
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out owned fixture
+        uses: actions/checkout@v4
+
+      - name: Upload inert SARIF renderer baseline
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: .github/sarif/ghbb-help-markdown-baseline.sarif
+          category: ghbb-sarif-help-markdown-20260917-s1
