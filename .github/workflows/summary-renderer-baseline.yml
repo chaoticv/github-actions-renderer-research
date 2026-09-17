@@ -1,0 +1,57 @@
+name: Actions summary renderer baseline
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: actions-summary-renderer-baseline
+  cancel-in-progress: false
+
+jobs:
+  render-summary:
+    name: Render benign summary baseline
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Write inert GitHub Flavored Markdown
+        shell: bash
+        run: |
+          set -euo pipefail
+          summary_path="${GITHUB_STEP_SUMMARY:?GITHUB_STEP_SUMMARY is unavailable}"
+
+          cat >>"${summary_path}" <<'MARKDOWN'
+          # Actions summary renderer baseline
+
+          **Marker:** `GHBB-ACTIONS-SUMMARY-BASELINE-20260917-A1`
+
+          This is *benign researcher-controlled text*.
+
+          > Baseline blockquote: static content only.
+
+          - Unordered list item
+          - Second unordered list item
+
+          1. Ordered list item
+          2. Second ordered list item
+
+          - [x] Expected static task
+          - [ ] Intentionally incomplete static task
+
+          | Field | Value |
+          | --- | --- |
+          | marker | `GHBB-ACTIONS-SUMMARY-BASELINE-20260917-A1` |
+          | content | inert |
+
+          ```text
+          GHBB-ACTIONS-SUMMARY-CODE-20260917-A1
+          ```
+
+          <details>
+          <summary>Expand static details</summary>
+
+          GHBB-ACTIONS-SUMMARY-DETAILS-20260917-A1
+
+          </details>
+          MARKDOWN
