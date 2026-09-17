@@ -7,7 +7,8 @@ on:
       - README.md
       - .github/workflows/summary-renderer-baseline.yml
 
-permissions: {}
+permissions:
+  checks: write
 
 concurrency:
   group: actions-summary-renderer-baseline
@@ -59,6 +60,33 @@ jobs:
 
           </details>
           MARKDOWN
+
+      - name: Create inert Check Run Markdown baseline
+        if: github.event_name == 'pull_request'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECK_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          payload_path="${RUNNER_TEMP}/ghbb-check-run-baseline.json"
+
+          jq -n \
+            --arg name 'GHBB Check Run renderer baseline' \
+            --arg head_sha "${CHECK_HEAD_SHA}" \
+            --arg title 'GHBB-CHECK-TITLE-BASELINE-20260917-C1' \
+            --arg summary $'## Check Run summary renderer baseline\n\n**Marker:** `GHBB-CHECK-SUMMARY-BASELINE-20260917-C1`\n\nThis is *benign researcher-controlled Markdown*.\n\n- Static list item\n- Second static list item\n\n[Owned HTTPS link](https://github.com/chaoticv/github-actions-renderer-research#ghbb-check-summary-c1)' \
+            --arg text $'### Check Run text renderer baseline\n\n`GHBB-CHECK-TEXT-BASELINE-20260917-C1`\n\n> Static expanded-text control.' \
+            '{name: $name, head_sha: $head_sha, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text}}' \
+            > "${payload_path}"
+
+          gh api \
+            --method POST \
+            --header 'Accept: application/vnd.github+json' \
+            --header 'X-GitHub-Api-Version: 2022-11-28' \
+            "repos/${GITHUB_REPOSITORY}/check-runs" \
+            --input "${payload_path}" \
+            >/dev/null
 
       - name: Emit inert file-bound notice
         shell: bash
