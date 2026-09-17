@@ -30,7 +30,7 @@ jobs:
 
           **Marker:** `GHBB-ACTIONS-SUMMARY-BASELINE-20260917-A1`
 
-          This is *benign researcher-controlled text*.
+          <span id="ghbb-summary-delta-20260917-a1">This is benign researcher-controlled text.</span>
 
           > Baseline blockquote: static content only.
 
