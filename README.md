@@ -40,7 +40,8 @@ commit credentials, cookies, tokens, or browser exports to the repository.
 
 ## Safety properties
 
-- Manual trigger only (`workflow_dispatch`).
+- Manual trigger plus pull requests that change this README or the fixture
+  workflow, allowing the same inert annotation to be compared in PR views.
 - No third-party actions or checked-out repository code.
 - No secrets, external URLs, uploads, or network commands.
 - Empty `permissions` map, so the workflow token receives no repository scopes.
