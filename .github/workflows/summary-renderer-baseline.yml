@@ -32,6 +32,11 @@ jobs:
 
           <span id="ghbb-summary-delta-20260917-a1">This is benign researcher-controlled text.</span>
 
+          ```mermaid
+          flowchart LR
+            A["GHBB-MERMAID-BASELINE-20260917-M1-A"] --> B["GHBB-MERMAID-BASELINE-20260917-M1-B"]
+          ```
+
           > Baseline blockquote: static content only.
 
           - Unordered list item
