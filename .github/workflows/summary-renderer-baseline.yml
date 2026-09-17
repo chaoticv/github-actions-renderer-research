@@ -74,13 +74,14 @@ jobs:
           jq -n \
             --arg name 'GHBB Check Run renderer baseline' \
             --arg head_sha "${CHECK_HEAD_SHA}" \
+            --arg details_url 'https://github.com/chaoticv/github-actions-renderer-research#ghbb-check-details-url-20260917-c7' \
             --arg title 'GHBB-CHECK-TITLE-BASELINE-20260917-C1' \
             --arg summary $'## Check Run summary renderer baseline\n\n**Marker:** `GHBB-CHECK-SUMMARY-BASELINE-20260917-C1`\n\nThis is *benign researcher-controlled Markdown*.\n\n- Static list item\n- Second static list item\n\n[Owned HTTPS link](https://github.com/chaoticv/github-actions-renderer-research#ghbb-check-summary-c1)\n\n<span id="ghbb-check-summary-span-20260917-c2">GHBB-CHECK-SUMMARY-SPAN-20260917-C2</span>' \
             --arg text $'### Check Run text renderer baseline\n\n`GHBB-CHECK-TEXT-BASELINE-20260917-C1`\n\n> Static expanded-text control.\n\n<span id="ghbb-check-summary-span-20260917-c2">GHBB-CHECK-SUMMARY-SPAN-20260917-C2</span>' \
             --arg image_url 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==' \
             --arg image_alt 'GHBB-CHECK-IMAGE-ALT-BEFORE-20260917-C5" data-ghbb-image-alt-c5="GHBB-CHECK-IMAGE-ALT-AFTER-20260917-C5' \
             --arg image_caption 'GHBB-CHECK-IMAGE-CAPTION-BASELINE-20260917-C4' \
-            '{name: $name, head_sha: $head_sha, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text, images: [{image_url: $image_url, alt: $image_alt, caption: $image_caption}]}}' \
+            '{name: $name, head_sha: $head_sha, details_url: $details_url, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text, images: [{image_url: $image_url, alt: $image_alt, caption: $image_caption}]}}' \
             > "${payload_path}"
 
           gh api \
