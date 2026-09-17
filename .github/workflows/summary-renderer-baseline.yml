@@ -34,7 +34,7 @@ jobs:
 
           ```mermaid
           flowchart LR
-            A["<span id='ghbb-mermaid-html-20260917-m2'>GHBB-MERMAID-HTML-20260917-M2</span>"] --> B["GHBB-MERMAID-BASELINE-20260917-M1-B"]
+            A["<svg><a><foreignObject><a><table><a></table><style><!--</style></svg><a id='--><span id=ghbb-mermaid-mxss-20260917-m3>GHBB-MERMAID-MXSS-20260917-M3</span>'>M3</a>"] --> B["GHBB-MERMAID-BASELINE-20260917-M1-B"]
           ```
 
           > Baseline blockquote: static content only.
