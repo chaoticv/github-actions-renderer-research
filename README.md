@@ -1,4 +1,4 @@
-# GitHub Actions job-summary renderer baseline
+# GitHub Actions job-summary renderer baseline (PR view)
 
 This repository fixture creates one manually triggered Actions run whose only
 purpose is to render a benign `GITHUB_STEP_SUMMARY` and one inert file-bound
