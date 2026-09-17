@@ -81,11 +81,14 @@ jobs:
             --arg image_url 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==' \
             --arg image_alt 'GHBB-CHECK-IMAGE-ALT-BEFORE-20260917-C5" data-ghbb-image-alt-c5="GHBB-CHECK-IMAGE-ALT-AFTER-20260917-C5' \
             --arg image_caption 'GHBB-CHECK-IMAGE-CAPTION-BASELINE-20260917-C4' \
+            --arg action_label 'GHBB-C10-LABEL' \
+            --arg action_description 'GHBB-C10-DESCRIPTION-PLAIN' \
+            --arg action_identifier 'ghbb_c10_action' \
             --arg annotation_path '.github/workflows/summary-renderer-baseline.yml' \
             --arg annotation_title 'GHBB-CHECK-ANNOTATION-TITLE-BASELINE-20260917-C8' \
             --arg annotation_message 'GHBB-CHECK-ANNOTATION-MESSAGE-BASELINE-20260917-C8' \
             --arg annotation_raw_details 'GHBB-C9-RAW-A</pre><span data-ghbb-c9="raw-details">GHBB-C9-RAW-B</span><pre>GHBB-C9-RAW-C' \
-            '{name: $name, head_sha: $head_sha, details_url: $details_url, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text, images: [{image_url: $image_url, alt: $image_alt, caption: $image_caption}], annotations: [{path: $annotation_path, start_line: 1, end_line: 1, annotation_level: "notice", title: $annotation_title, message: $annotation_message, raw_details: $annotation_raw_details}]}}' \
+            '{name: $name, head_sha: $head_sha, details_url: $details_url, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text, images: [{image_url: $image_url, alt: $image_alt, caption: $image_caption}], annotations: [{path: $annotation_path, start_line: 1, end_line: 1, annotation_level: "notice", title: $annotation_title, message: $annotation_message, raw_details: $annotation_raw_details}]}, actions: [{label: $action_label, description: $action_description, identifier: $action_identifier}]}' \
             > "${payload_path}"
 
           gh api \
