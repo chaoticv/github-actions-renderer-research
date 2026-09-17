@@ -7,7 +7,8 @@ on:
       - README.md
       - .github/workflows/summary-renderer-baseline.yml
 
-permissions: {}
+permissions:
+  checks: write
 
 concurrency:
   group: actions-summary-renderer-baseline
@@ -60,8 +61,46 @@ jobs:
           </details>
           MARKDOWN
 
+      - name: Create inert Check Run Markdown baseline
+        if: github.event_name == 'pull_request'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECK_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          payload_path="${RUNNER_TEMP}/ghbb-check-run-baseline.json"
+
+          jq -n \
+            --arg name 'GHBB Check Run renderer baseline' \
+            --arg head_sha "${CHECK_HEAD_SHA}" \
+            --arg details_url 'https://github.com/chaoticv/github-actions-renderer-research#ghbb-check-details-url-20260917-c7' \
+            --arg title 'GHBB-CHECK-TITLE-BASELINE-20260917-C1' \
+            --arg summary $'## Check Run summary renderer baseline\n\n**Marker:** `GHBB-CHECK-SUMMARY-BASELINE-20260917-C1`\n\nThis is *benign researcher-controlled Markdown*.\n\n- Static list item\n- Second static list item\n\n[Owned HTTPS link](https://github.com/chaoticv/github-actions-renderer-research#ghbb-check-summary-c1)\n\n<span id="ghbb-check-summary-span-20260917-c2">GHBB-CHECK-SUMMARY-SPAN-20260917-C2</span>' \
+            --arg text $'### Check Run text renderer baseline\n\n`GHBB-CHECK-TEXT-BASELINE-20260917-C1`\n\n> Static expanded-text control.\n\n<span id="ghbb-check-summary-span-20260917-c2">GHBB-CHECK-SUMMARY-SPAN-20260917-C2</span>' \
+            --arg image_url 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==' \
+            --arg image_alt 'GHBB-CHECK-IMAGE-ALT-BEFORE-20260917-C5" data-ghbb-image-alt-c5="GHBB-CHECK-IMAGE-ALT-AFTER-20260917-C5' \
+            --arg image_caption 'GHBB-CHECK-IMAGE-CAPTION-BASELINE-20260917-C4' \
+            --arg action_label 'GHBB-C10-LABEL' \
+            --arg action_description 'GHBB-C10-DESCRIPTION-PLAIN' \
+            --arg action_identifier 'ghbb_c10_action' \
+            --arg annotation_path '.github/workflows/summary-renderer-baseline.yml' \
+            --arg annotation_title 'GHBB-CHECK-ANNOTATION-TITLE-BASELINE-20260917-C8' \
+            --arg annotation_message 'GHBB-CHECK-ANNOTATION-MESSAGE-BASELINE-20260917-C8' \
+            --arg annotation_raw_details 'GHBB-C9-RAW-A</pre><span data-ghbb-c9="raw-details">GHBB-C9-RAW-B</span><pre>GHBB-C9-RAW-C' \
+            '{name: $name, head_sha: $head_sha, details_url: $details_url, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text, images: [{image_url: $image_url, alt: $image_alt, caption: $image_caption}], annotations: [{path: $annotation_path, start_line: 1, end_line: 1, annotation_level: "notice", title: $annotation_title, message: $annotation_message, raw_details: $annotation_raw_details}]}, actions: [{label: $action_label, description: $action_description, identifier: $action_identifier}]}' \
+            > "${payload_path}"
+
+          gh api \
+            --method POST \
+            --header 'Accept: application/vnd.github+json' \
+            --header 'X-GitHub-Api-Version: 2022-11-28' \
+            "repos/${GITHUB_REPOSITORY}/check-runs" \
+            --input "${payload_path}" \
+            >/dev/null
+
       - name: Emit inert file-bound notice
         shell: bash
         run: |
           set -euo pipefail
-          printf '%s\n' '::notice file=README.md,line=1,endLine=1,title=GHBB-ACTIONS-ANNOTATION-TITLE-20260917-A1::GHBB-ACTIONS-ANNOTATION-MESSAGE-20260917-A1'
+          printf '%s\n' '::notice file=README.md,line=1,endLine=1,title=GHBB-ACTIONS-ANNOTATION-TITLE-20260917-A1::GHBB-ACTIONS-ANNOTATION-MESSAGE-URL-20260917-A3 https://github.com/chaoticv/github-actions-renderer-research#ghbb-annotation-url-20260917-a3'
