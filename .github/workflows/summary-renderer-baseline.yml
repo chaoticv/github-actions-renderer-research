@@ -84,7 +84,7 @@ jobs:
             --arg annotation_path '.github/workflows/summary-renderer-baseline.yml' \
             --arg annotation_title 'GHBB-CHECK-ANNOTATION-TITLE-BASELINE-20260917-C8' \
             --arg annotation_message 'GHBB-CHECK-ANNOTATION-MESSAGE-BASELINE-20260917-C8' \
-            --arg annotation_raw_details 'GHBB-CHECK-ANNOTATION-RAW-DETAILS-BASELINE-20260917-C8' \
+            --arg annotation_raw_details 'GHBB-C9-RAW-A</pre><span data-ghbb-c9="raw-details">GHBB-C9-RAW-B</span><pre>GHBB-C9-RAW-C' \
             '{name: $name, head_sha: $head_sha, details_url: $details_url, status: "completed", conclusion: "success", output: {title: $title, summary: $summary, text: $text, images: [{image_url: $image_url, alt: $image_alt, caption: $image_caption}], annotations: [{path: $annotation_path, start_line: 1, end_line: 1, annotation_level: "notice", title: $annotation_title, message: $annotation_message, raw_details: $annotation_raw_details}]}}' \
             > "${payload_path}"
 
