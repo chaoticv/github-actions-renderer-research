@@ -41,8 +41,8 @@
           "ruleIndex": 0,
           "level": "warning",
           "message": {
-            "text": "GHBB-SARIF-RESULT-TEXT-20260917-S1. See [GHBB-SARIF-RELATED-LINK-20260917-S1](1) for the owned related location.",
-            "markdown": "**GHBB-SARIF-RESULT-MARKDOWN-UNSUPPORTED-20260917-S1**"
+            "text": "GHBB-SARIF-S2-TEXT-FALLBACK",
+            "markdown": "GHBB-SARIF-S2-MD-BEGIN | **GHBB-S2-LIT-EM** | &#42;&#42;GHBB-S2-ENT-EM&#42;&#42; | <span id=ghbb-s2-raw>GHBB-S2-RAW</span> | &lt;span id=ghbb-s2-ent&gt;GHBB-S2-ENT&lt;/span&gt; | [GHBB-S2-LINK](#ghbb-s2-raw) | GHBB-SARIF-S2-MD-END"
           },
           "locations": [
             {
@@ -59,9 +59,6 @@
               }
             }
           ],
-          "partialFingerprints": {
-            "primaryLocationLineHash": "8f3ca9d77bd65f21:1"
-          },
           "relatedLocations": [
             {
               "id": 1,
