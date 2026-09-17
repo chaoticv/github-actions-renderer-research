@@ -32,6 +32,18 @@ jobs:
 
           <span id="ghbb-summary-delta-20260917-a1">This is benign researcher-controlled text.</span>
 
+          **Math renderer control:**
+
+          $$
+          \text{GHBB-MATH-PLAIN-20260917-T1}
+          $$
+
+          **Math renderer HTTPS link discriminator:**
+
+          $$
+          \href{https://github.com/chaoticv/github-actions-renderer-research/tree/ghbb-summary-math-20260917-t1}{\text{GHBB-MATH-LINK-20260917-T1}}
+          $$
+
           > Baseline blockquote: static content only.
 
           - Unordered list item
