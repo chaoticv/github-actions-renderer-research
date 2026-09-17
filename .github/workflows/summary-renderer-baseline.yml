@@ -55,3 +55,9 @@ jobs:
 
           </details>
           MARKDOWN
+
+      - name: Emit inert file-bound notice
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s\n' '::notice file=README.md,line=1,endLine=1,title=GHBB-ACTIONS-ANNOTATION-TITLE-20260917-A1::GHBB-ACTIONS-ANNOTATION-MESSAGE-20260917-A1'

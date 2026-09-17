@@ -1,8 +1,9 @@
 # GitHub Actions job-summary renderer baseline
 
 This repository fixture creates one manually triggered Actions run whose only
-purpose is to render a benign `GITHUB_STEP_SUMMARY`. It establishes a stable
-control for later, one-variable-at-a-time renderer research.
+purpose is to render a benign `GITHUB_STEP_SUMMARY` and one inert file-bound
+notice annotation. It establishes stable controls for later,
+one-variable-at-a-time renderer research.
 
 The summary contains a unique text marker plus common GitHub Flavored Markdown
 forms: a heading, emphasis, a blockquote, a list, a task list, a table, a fenced
@@ -24,10 +25,18 @@ Expected marker:
 GHBB-ACTIONS-SUMMARY-BASELINE-20260917-A1
 ```
 
-Expected behavior: the marker is visible, Markdown renders as the corresponding
-static elements, and the collapsed section reveals only inert text when opened.
-Record the run URL and timestamp in the hunt evidence; do not commit credentials,
-cookies, tokens, or browser exports to the repository.
+Expected annotation markers:
+
+```text
+GHBB-ACTIONS-ANNOTATION-TITLE-20260917-A1
+GHBB-ACTIONS-ANNOTATION-MESSAGE-20260917-A1
+```
+
+Expected behavior: the summary marker is visible, Markdown renders as the
+corresponding static elements, the collapsed section reveals only inert text,
+and the notice appears in the run's Annotations region with a link to line 1 of
+this README. Record the run URL and timestamp in the hunt evidence; do not
+commit credentials, cookies, tokens, or browser exports to the repository.
 
 ## Safety properties
 
@@ -36,5 +45,6 @@ cookies, tokens, or browser exports to the repository.
 - No secrets, external URLs, uploads, or network commands.
 - Empty `permissions` map, so the workflow token receives no repository scopes.
 - One short job with a five-minute timeout.
+- One static notice command whose title, message, path, and line are fixed.
 
 This fixture is a rendering baseline. It does not contain an XSS payload.
