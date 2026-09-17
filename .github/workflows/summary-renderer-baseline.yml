@@ -64,4 +64,4 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          printf '%s\n' '::notice file=README.md,line=1,endLine=1,title=GHBB-ACTIONS-ANNOTATION-TITLE-20260917-A1::GHBB-ACTIONS-ANNOTATION-MESSAGE-20260917-A1'
+          printf '%s\n' '::notice file=README.md,line=1,endLine=1,title=<span id="ghbb-annotation-title-delta-20260917-a2">GHBB-ACTIONS-ANNOTATION-TITLE-DELTA-20260917-A2</span>::GHBB-ACTIONS-ANNOTATION-MESSAGE-20260917-A1'
