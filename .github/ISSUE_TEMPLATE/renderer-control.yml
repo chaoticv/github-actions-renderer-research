@@ -36,5 +36,5 @@ body:
       label: GHBB checkbox control
       description: GHBB-ISSUE-FORM-CHECKBOX-DESCRIPTION-CONTROL
       options:
-        - label: GHBB-ISSUE-FORM-CHECKBOX-LABEL-CONTROL
+        - label: 'GHBB-IF-CB-A<math id="ghbb-if-math"><mtext><svg id="ghbb-if-svg"><desc>B</desc></svg></mtext></math>C'
           required: false
