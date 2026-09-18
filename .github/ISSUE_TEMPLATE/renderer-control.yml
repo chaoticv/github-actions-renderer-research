@@ -1,0 +1,40 @@
+name: Renderer control
+description: Benign Issue Forms renderer control
+title: "[renderer-control] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        GHBB-ISSUE-FORM-MARKDOWN-CONTROL
+
+  - type: input
+    id: input-control
+    attributes:
+      label: GHBB input control
+      description: GHBB-ISSUE-FORM-INPUT-DESCRIPTION-CONTROL
+      placeholder: GHBB input placeholder control
+
+  - type: dropdown
+    id: dropdown-control
+    attributes:
+      label: GHBB dropdown control
+      description: GHBB-ISSUE-FORM-DROPDOWN-DESCRIPTION-CONTROL
+      options:
+        - GHBB dropdown option control
+
+  - type: textarea
+    id: textarea-control
+    attributes:
+      label: GHBB textarea control
+      description: GHBB-ISSUE-FORM-TEXTAREA-DESCRIPTION-CONTROL
+      placeholder: GHBB textarea placeholder control
+      render: shell
+
+  - type: checkboxes
+    id: checkbox-control
+    attributes:
+      label: GHBB checkbox control
+      description: GHBB-ISSUE-FORM-CHECKBOX-DESCRIPTION-CONTROL
+      options:
+        - label: GHBB-ISSUE-FORM-CHECKBOX-LABEL-CONTROL
+          required: false
